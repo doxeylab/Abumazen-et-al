@@ -1,6 +1,4 @@
-# Abumazen-et-al
-Code and data links for Abumazen et al.
-
+# Code for analyses described in Doxey et al.
 
 * Code:
   -  `/docs/Rmarkdown.html`: initial version of analysis
@@ -9,5 +7,5 @@ Code and data links for Abumazen et al.
   -  `/docs/hostResponseClassifier.R`: code for constructing host-response random-forest classifier
 * Data required for analysis:
   - `d1-d5_fastp_dehost_krakenmerged_reads_normalized.txt`:  Taxonomic predictions for all samples
-  - `gencode.v39.metadata.HGNC`: reference human transcriptome
+  - `gencode.v39.metadata.HGNC`: reference human transcriptome (https://www.gencodegenes.org/)
   - `/quants/`: gene expression data for all samples - please contact the authors
