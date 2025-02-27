@@ -1,3 +1,5 @@
+## Author: Max Homm (Feb 27, 2025)
+
 ## The following code continues from the analysis described in Rmarkdown-V2.html
 
 # Get a reduced df of genes for bacterial and viral
@@ -119,14 +121,16 @@ rf_cv1 <- train(
   x = data, 
   y = labels, 
   method = "rf", 
-  ntree = 500, 
+  ntree = 500,
   trControl = control, 
-  metric = "ROC"
+  metric = "ROC",
+  tuneGrid = expand.grid(mtry = 3) # Because sqrt(8 parameters) ≈ 3
 )
 print(rf_cv1)
 
-# The best performing model, predicting viral positive as defined by our RNA-seq classifications
+# The final AUC value
 print(max(rf_cv1$results$ROC))
+rf_cv1$finalModel
 
 # b) Train the Random Forest with cross-validation (Clinical labels)
 
@@ -141,11 +145,13 @@ rf_cv2 <- train(
   ntree = 500, 
   trControl = control, 
   metric = "ROC", 
+  tuneGrid = expand.grid(mtry = 3) # Because sqrt(8 parameters) ≈ 3
 )
 print(rf_cv2)
 
-# The best performing model, predicting viral positive as defined by our clinical labels
+# The final AUC value
 print(max(rf_cv2$results$ROC))
+print(rf_cv2$finalModel)
 
 ###### BACTERIAL SECOND ###### 
 
@@ -172,11 +178,13 @@ rf_cv3 <- train(
   ntree = 500, 
   trControl = control, 
   metric = "ROC", 
+  tuneGrid = expand.grid(mtry = 3) # Because sqrt(10 parameters) ≈ 3
 )
 print(rf_cv3)
 
-# The best performing model, predicting bacterial positive as defined by our RNA-seq classifications
+# The final AUC value
 print(max(rf_cv3$results$ROC))
+print(rf_cv3$finalModel)
 
 # b) Train the Random Forest with cross-validation (clinical labels)
 
@@ -191,8 +199,10 @@ rf_cv4 <- train(
   ntree = 500, 
   trControl = control, 
   metric = "ROC", 
+  tuneGrid = expand.grid(mtry = 3) # Because sqrt(10 parameters) ≈ 3
 )
 print(rf_cv4)
 
-# The best performing model, predicting bacterial positive as defined by our clinical labels
+# The final AUC value
 print(max(rf_cv4$results$ROC))
+print(rf_cv4$finalModel)
