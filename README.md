@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4b5c0a80-718e-4b75-b224-8e231e63db06)# Code for analyses described in Doxey et al.
+# Code for analyses described in Doxey et al.
 
 * Data:
   - raw FASTQ files available from the NCBI SRA: accession # PRJNA1212169
